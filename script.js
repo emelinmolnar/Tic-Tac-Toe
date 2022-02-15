@@ -44,20 +44,36 @@ function checkWinLoseDraw() {
     for (let i = 0; i < combinationsOfWinning.length; i++) {
         if (checkedArray[combinationsOfWinning[i][0]] == "circle" && checkedArray[combinationsOfWinning[i][1]] == "circle" && checkedArray[combinationsOfWinning[i][2]] == "circle") {
             gameOver = true;
-            alert("Circle won");
+            let newP = document.createElement("p");
+            let node = document.createTextNode("Circle Won");
+            let div = document.getElementById("state");
+            newP.appendChild(node);
+            div.appendChild(newP);
             break;
         } else if (checkedArray[combinationsOfWinning[i][0]] == "x" && checkedArray[combinationsOfWinning[i][1]] == "x" && checkedArray[combinationsOfWinning[i][2]] == "x") {
             gameOver = true;
-            alert("X won");
+            let newP = document.createElement("p");
+            let node = document.createTextNode("X Won");
+            let div = document.getElementById("state");
+            newP.appendChild(node);
+            
+            div.appendChild(newP);
             break;
         } else if (attempts == 0) {
             gameOver = true;
-            alert("Draw");
+            let newP = document.createElement("p");
+            let node = document.createTextNode("Draw");
+            let div = document.getElementById("state");
+            newP.appendChild(node);
+            div.appendChild(newP);
             break;
         }
     }
-    if (gameOver == true) {
-        location.reload();
+    if(gameOver == true) {
+        for(let i = 1; i <= 9; i++) {
+            let box = document.getElementById("box" + i);
+            box.classList.add("disabled");
+        }
     }
 }
 function clickHandler (box) { //box has the form: "(box1), (box2), (box3), (box4), ... , (box9)";
@@ -82,8 +98,6 @@ function changeTurn() {
     xTurn = !xTurn;
 }
 
-
-
-
-
-
+function startOver() {
+    location.reload();
+}
