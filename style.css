@@ -1,0 +1,59 @@
+.boxes {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: repeat(3, auto);
+}
+
+.box {
+    width:100px;
+    height:100px;
+    background-color:white ;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+}
+
+.box.x::before,
+.box.x::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 90px;
+    background-color: black;
+}
+
+.box.x::before {
+    rotate: 45deg;
+}
+
+.box.x::after {
+    rotate: -45deg;
+}
+
+.box.circle::before,
+.box.circle::after {
+    content: '';
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    background-color: black;
+    border-radius: 50%;
+}
+
+.box.circle::before {
+    width: 90px;
+    height: 90px;
+    background-color: black;
+}
+
+.box.circle::after {
+    width: 80px;
+    height: 80px;
+    background-color: white;
+}
